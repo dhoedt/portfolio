@@ -90,3 +90,27 @@ When implementation begins:
 ## Browser Support
 
 Modern browsers only (last 2 versions): Chrome, Firefox, Safari, Edge
+
+## Architecture guidelines
+
+### CSS
+
+#### Rule 1
+Avoid using pixels (`px`) as much as possible in CSS files, use `rem` instead whenever possible
+
+#### Rule 2
+Avoid adding superfluous classes when an HTML element can be directly targeted by its selector.
+
+Here's an example of what to avoid:
+```CSS
+// Footer
+.site-footer {
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+  text-align: center;
+  color: #666;
+  margin-top: 4rem;
+}
+```
+
+Use `<footer>` and its corresponding selector, no class needed here.
