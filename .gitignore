@@ -1,0 +1,15 @@
+# Build output
+_site/
+public/css/
+# Dependencies
+node_modules/
+# Environment
+.env
+.env.local
+# Editor
+.vscode/
+# Logs
+*.log*
+# Cache
+.cache/
+.eleventy-cache/

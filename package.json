@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development eleventy --serve",
+    "build": "cross-env NODE_ENV=production eleventy",
+    "clean": "rimraf _site public/css"
+  },
+  "keywords": ["portfolio", "eleventy", "static-site"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "cross-env": "^7.0.3",
+    "less": "^4.2.0",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

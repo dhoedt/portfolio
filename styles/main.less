@@ -1,0 +1,161 @@
+// Reset and Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, Ubuntu, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Navigation (Mobile-First)
+.main-nav {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: none; // Hidden on mobile by default
+    list-style: none;
+    gap: 2rem;
+
+    // Mobile active state - dropdown menu
+    &.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+
+  .nav-toggle {
+    display: flex; // Visible on mobile by default
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      transition: 0.3s;
+    }
+  }
+}
+
+// Main Content
+main {
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+// Hero Section (Mobile-First)
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+
+  h1 {
+    font-size: 2rem; // Mobile base size
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1rem; // Mobile base size
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+footer {
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+  text-align: center;
+  color: #666;
+  margin-top: 4rem;
+}
+
+// Responsive Design (Mobile-First: Progressive Enhancement)
+@media (min-width: 768px) {
+  .main-nav {
+    .nav-links {
+      display: flex; // Show full nav on tablet+
+      flex-direction: row; // Horizontal layout on tablet+
+      position: static; // Reset absolute positioning
+      box-shadow: none; // Remove dropdown shadow
+      padding: 0; // Remove dropdown padding
+    }
+
+    .nav-toggle {
+      display: none; // Hide hamburger on tablet+
+    }
+  }
+
+  .hero {
+    h1 {
+      font-size: 3rem; // Larger typography on tablet+
+    }
+
+    p {
+      font-size: 1.25rem; // Larger typography on tablet+
+    }
+  }
+}
