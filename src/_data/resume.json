@@ -1,0 +1,97 @@
+{
+  "hero": {
+    "name": "Martin D'Hoedt",
+    "title": "Passionate about IT, curious of the world",
+    "intro": "Learning new things and sharing that knowledge"
+  },
+  "timeline": [
+    {
+      "section": "work",
+      "title": "Work Experience",
+      "items": [
+        {
+          "position": "Computer Science Teacher",
+          "company": "Dream Your Life",
+          "location": "Brussels, Belgium",
+          "startDate": "2022-09",
+          "endDate": "present",
+          "responsibilities": [
+            "Helping students pass the FWB exams to get their CESS diploma ;",
+            "Creating new learning material ;",
+            "Implementing custom solutions or using already available open-source initiatives when possible."
+          ]
+        },
+        {
+          "position": "Analyst Programmer",
+          "company": "Centran",
+          "location": "Brussels, Belgium",
+          "startDate": "2022-11",
+          "endDate": "2025-07",
+          "responsibilities": [
+            "Worked at FPS Finance maintaining and building applications responsible for automatic exchanges of financial information (AEOI) across EU member states and non-EU institutions.",
+            "Balancing act between old and new stacks."
+          ]
+        }
+      ]
+    },
+    {
+      "section": "projects",
+      "title": "Projects",
+      "items": [
+        {
+          "name": "Portfolio Website",
+          "description": "Personal portfolio showcasing IT projects and creative work built with Eleventy",
+          "technologies": ["Eleventy", "Less", "Nunjucks"],
+          "date": "2025-11",
+          "url": "https://github.com/dhoedt/portfolio"
+        },
+        {
+          "name": "Koolangata",
+          "description": "(legal) copy of an already existing website ; took me an evening.",
+          "details": [
+            "Hosted on DigitalOcean for a fraction of the original cost ;",
+            "Website used to be a WYSIWYG, it lived as a subdomain. Now it has its own domain name ;",
+            "Fully customizable static website ; handmade CSS style/rules and HTML content."
+          ],
+          "technologies": ["DigitalOcean", "DNS", "Bash", "Debian"],
+          "date": "2025-07",
+          "url": "https://koolangata.com/"
+        },
+        {
+          "name": "LaboDivaElectronic",
+          "description": "First project using Wordpress.",
+          "details": [
+            "Custom child theme based on Understrap ;",
+            "Running on an affordable DigitalOcean VPS ;",
+            "Uses SlickStack for a barebone, optimised Wordpress setup."
+          ],
+          "technologies": ["DigitalOcean", "GitHub", "Bash", "Docker"],
+          "date": "Jan 2021",
+          "url": "https://labodivaelectronic.be/"
+        },
+        {
+          "name": "AvocAlliance",
+          "description": "First static website.",
+          "details": [
+            "Used open-source vanilla JS library for the parallax scrolling effect ;",
+            "Content updated as needed (last commit on Jan 24, 2020)."
+          ],
+          "technologies": ["Bootstrap 3", "Custom CSS sheet", "JQuery", "Docker"],
+          "date": "Mar 2017",
+          "url": "https://avocalliance.be/"
+        }
+      ]
+    },
+    {
+      "section": "skills",
+      "title": "Skills",
+      "items": [
+        {
+          "name": "Learning Russian",
+          "description": "Started at UCLouvain, during my master's ; beautiful language but terrible timing with the current events.",
+          "date": "2020"
+        }
+      ]
+    }
+  ]
+}

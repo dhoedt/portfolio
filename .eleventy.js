@@ -27,6 +27,18 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Format resume dates (handles "present" and ISO dates)
+  eleventyConfig.addFilter('formatDate', dateString => {
+    if (!dateString) return '';
+    if (dateString.toLowerCase() === 'present') return 'Present';
+
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short'
+    });
+  });
+
   // -------------------
   // Less Compilation
   // -------------------

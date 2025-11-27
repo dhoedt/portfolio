@@ -1,0 +1,246 @@
+// Timeline Resume Styles
+// Mobile-first responsive design with dark theme
+
+// Resume Hero Section
+.resume-hero {
+  text-align: center;
+  padding: @spacing-3xl @spacing-md;
+  background: linear-gradient(0deg, @color-bg-dark 0%, @color-bg-dark-alt 100%);
+
+  h1 {
+    font-size: 2rem;
+    color: @color-text-light;
+    margin-bottom: @spacing-sm;
+    font-weight: @weight-bold;
+  }
+
+  .hero-title {
+    font-size: @font-size-large;
+    color: @color-accent-primary;
+    margin-bottom: @spacing-md;
+    font-weight: @weight-medium;
+  }
+
+  .hero-intro {
+    font-size: @font-size-base;
+    color: @color-text-muted;
+    max-width: 40rem;
+    margin: 0 auto;
+    line-height: @line-height-relaxed;
+  }
+
+  @media (min-width: 768px) {
+    padding: @spacing-3xl * 1.5 @spacing-md;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .hero-title {
+      font-size: @font-size-h3;
+    }
+
+    .hero-intro {
+      font-size: @font-size-large;
+    }
+  }
+}
+
+// Timeline Container
+.resume-timeline {
+  background-color: @color-bg-dark;
+  padding: @spacing-2xl @spacing-md @spacing-3xl;
+
+  .container {
+    max-width: 50rem; // Narrower for better readability
+  }
+}
+
+// Timeline Structure
+.timeline {
+  position: relative;
+  padding-left: @timeline-offset-mobile;
+
+  // Vertical connecting line
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc(@timeline-dot-size / 2);
+    top: 0;
+    bottom: 0;
+    width: @timeline-line-width;
+    background-color: @color-timeline-line;
+  }
+
+  @media (min-width: 768px) {
+    padding-left: @timeline-offset-desktop;
+  }
+}
+
+// Timeline Section (numbered)
+.timeline-section {
+  position: relative;
+  display: flex;
+  margin-bottom: @spacing-2xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Timeline Marker (numbered circle)
+.timeline-marker {
+  position: absolute;
+  left: calc(-1 * @timeline-offset-mobile);
+  top: 0;
+  width: @timeline-dot-size;
+  height: @timeline-dot-size;
+  background-color: @color-bg-dark-alt;
+  border: @timeline-line-width * 1.5 solid @color-accent-primary;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 0 0.25rem @color-bg-dark;
+
+  .timeline-number {
+    font-size: @font-size-large;
+    font-weight: @weight-bold;
+    color: @color-accent-primary;
+  }
+
+  @media (min-width: 768px) {
+    left: calc(-1 * @timeline-offset-desktop);
+  }
+}
+
+// Timeline Content Area
+.timeline-content {
+  flex: 1;
+
+  .section-title {
+    font-size: @font-size-h2;
+    color: @color-text-light;
+    margin-bottom: @spacing-xl;
+    font-weight: @weight-bold;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: @font-size-h1;
+      margin-bottom: @spacing-2xl;
+    }
+  }
+}
+
+// Individual Timeline Items
+.timeline-item {
+  background-color: @color-bg-dark-alt;
+  padding: @spacing-lg;
+  border-radius: 0.5rem;
+  margin-bottom: @spacing-lg;
+  border-left: 0.25rem solid @color-accent-secondary;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateX(0.25rem);
+    box-shadow: 0 0.25rem 1rem rgba(100, 255, 218, 0.1);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: @font-size-h3;
+    color: @color-text-light;
+    margin-bottom: @spacing-sm;
+
+    a {
+      color: @color-accent-primary;
+      text-decoration: none;
+      border-bottom: 0.0625rem solid transparent;
+      transition: border-color 0.2s ease;
+
+      &:hover {
+        border-bottom-color: @color-accent-primary;
+      }
+    }
+  }
+
+  .item-meta {
+    font-size: @font-size-small;
+    color: @color-text-muted;
+    margin-bottom: @spacing-md;
+    line-height: @line-height-relaxed;
+
+    time {
+      font-family: @font-mono;
+      font-size: 0.8125rem;
+    }
+  }
+
+  p {
+    color: @color-text-light;
+    line-height: @line-height-relaxed;
+    margin-bottom: @spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: @spacing-xl;
+    border-radius: 0.625rem;
+
+    h3 {
+      font-size: @font-size-h2;
+    }
+  }
+}
+
+// Lists within items
+.item-list {
+  list-style: none;
+  margin: @spacing-md 0 0;
+
+  li {
+    color: @color-text-light;
+    line-height: @line-height-relaxed;
+    margin-bottom: @spacing-sm;
+    padding-left: @spacing-lg;
+    position: relative;
+
+    &::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: @color-accent-primary;
+      font-size: @font-size-large;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Tech Stack Tags
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @spacing-sm;
+  margin-top: @spacing-md;
+
+  code {
+    font-family: @font-mono;
+    font-size: @font-size-code;
+    color: @color-accent-primary;
+    background-color: rgba(100, 255, 218, 0.1);
+    padding: @spacing-xs @spacing-sm;
+    border-radius: 0.25rem;
+    border: 0.0625rem solid rgba(100, 255, 218, 0.2);
+  }
+}

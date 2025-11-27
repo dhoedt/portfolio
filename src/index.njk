@@ -1,20 +1,102 @@
 ---
 layout: base.njk
-title: Home
-description: Welcome to my portfolio
+title: Resume - Martin D'Hoedt
+description: IT Professional & Creative - Resume Timeline
 ---
 
-<section class="hero">
+{# Hero Section #}
+<section class="resume-hero">
   <div class="container">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Showcasing IT projects and creative work</p>
-    <a href="#about" class="cta">Learn More</a>
+    <h1>{{ resume.hero.name }}</h1>
+    <p class="hero-title">{{ resume.hero.title }}</p>
+    <p class="hero-intro">{{ resume.hero.intro }}</p>
   </div>
 </section>
 
-<section id="about" class="about">
+{# Timeline Section #}
+<section class="resume-timeline">
   <div class="container">
-    <h2>About Me</h2>
-    <p>This is a placeholder for your introduction. Share your story, skills, and what drives you in IT and creative fields.</p>
+    <div class="timeline">
+
+      {% for section in resume.timeline %}
+      <div class="timeline-section">
+        <div class="timeline-marker">
+          <span class="timeline-number">{{ loop.index }}</span>
+        </div>
+        <div class="timeline-content">
+          <h2 class="section-title">{{ section.title }}</h2>
+
+          {# Work Experience #}
+          {% if section.section == "work" %}
+            {% for item in section.items %}
+            <article class="timeline-item">
+              <h3>{{ item.position }}</h3>
+              <p class="item-meta">
+                {{ item.company }} • {{ item.location }}
+                <br>
+                <time>{{ item.startDate | formatDate }}</time> – <time>{{ item.endDate | formatDate }}</time>
+              </p>
+              <ul class="item-list">
+                {% for resp in item.responsibilities %}
+                <li>{{ resp }}</li>
+                {% endfor %}
+              </ul>
+            </article>
+            {% endfor %}
+          {% endif %}
+
+          {# Projects #}
+          {% if section.section == "projects" %}
+            {% for item in section.items %}
+            <article class="timeline-item">
+              <h3>
+                {% if item.url %}
+                <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.name }}</a>
+                {% else %}
+                {{ item.name }}
+                {% endif %}
+              </h3>
+              <p class="item-meta">
+                <time>{{ item.date | formatDate }}</time>
+              </p>
+              <p>{{ item.description }}</p>
+              <ul class="item-list">
+                {% for detail in item.details %}
+                <li>{{ detail }}</li>
+                {% endfor %}
+              </ul>
+              <div class="tech-stack">
+                {% for tech in item.technologies %}
+                <code>{{ tech }}</code>
+                {% endfor %}
+              </div>
+            </article>
+            {% endfor %}
+          {% endif %}
+
+          {# Skills #}
+          {% if section.section == "skills" %}
+            {% for item in section.items %}
+            <article class="timeline-item">
+              <h3>
+                {% if item.url %}
+                <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.name }}</a>
+                {% else %}
+                {{ item.name }}
+                {% endif %}
+              </h3>
+              <p class="item-meta">
+                <time>{{ item.date | formatDate }}</time>
+              </p>
+              <p>{{ item.description }}</p>
+            </article>
+            {% endfor %}
+          {% endif %}
+
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
   </div>
 </section>

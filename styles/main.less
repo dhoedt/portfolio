@@ -1,6 +1,7 @@
 // Imports
 @import '_fonts';
 @import '_variables';
+@import '_timeline';
 
 // Reset and Base Styles
 * {
@@ -12,8 +13,8 @@
 body {
   font-family: @font-body;
   line-height: @line-height-normal;
-  color: #333;
-  background-color: #fff;
+  color: @color-text-light;
+  background-color: @color-bg-dark;
 }
 
 // Typography
@@ -31,7 +32,7 @@ h4 { font-size: @font-size-h4; }
 code, pre, kbd, samp {
   font-family: @font-mono;
   font-size: @font-size-code;
-  background-color: #f5f5f5;
+  background-color: rgba(100, 255, 218, 0.1);
   padding: 0.125rem 0.25rem;
   border-radius: 0.1875rem;
 }
@@ -39,6 +40,7 @@ code, pre, kbd, samp {
 pre {
   padding: 1rem;
   overflow-x: auto;
+  background-color: @color-bg-dark-alt;
 
   code {
     padding: 0;
@@ -55,8 +57,8 @@ pre {
 // Navigation (Mobile-First)
 .main-nav {
   position: relative;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: @color-bg-dark-alt;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
   padding: 1rem 0;
 
   .container {
@@ -68,7 +70,7 @@ pre {
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: @color-accent-primary;
     text-decoration: none;
   }
 
@@ -85,20 +87,20 @@ pre {
       top: 100%;
       left: 0;
       right: 0;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: @color-bg-dark-alt;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
       padding: 1rem;
       gap: 1rem;
       z-index: 100;
     }
 
     a {
-      color: #333;
+      color: @color-text-light;
       text-decoration: none;
       transition: color 0.3s ease;
 
       &:hover {
-        color: #007bff;
+        color: @color-accent-primary;
       }
     }
   }
@@ -109,22 +111,16 @@ pre {
     border: none;
     cursor: pointer;
     flex-direction: column;
-    gap: 4px;
+    gap: 0.25rem;
 
     span {
       display: block;
-      width: 25px;
-      height: 3px;
-      background-color: #333;
+      width: 1.5625rem;
+      height: 0.1875rem;
+      background-color: @color-accent-primary;
       transition: 0.3s;
     }
   }
-}
-
-// Main Content
-main {
-  min-height: calc(100vh - 200px);
-  padding: 2rem 0;
 }
 
 // Hero Section (Mobile-First)
@@ -161,11 +157,22 @@ main {
 }
 
 footer {
-  background-color: #f8f9fa;
-  padding: 2rem 0;
+  background: linear-gradient(180deg, @color-bg-dark 0%, @color-bg-dark-alt 100%);
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   text-align: center;
-  color: #666;
-  margin-top: 4rem;
+  color: @color-text-muted;
+
+  a {
+    color: @color-accent-primary;
+    text-decoration: none;
+    border-bottom: 0.0625rem solid transparent;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-bottom-color: @color-accent-primary;
+    }
+  }
 }
 
 // Responsive Design (Mobile-First: Progressive Enhancement)
