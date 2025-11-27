@@ -1,3 +1,7 @@
+// Imports
+@import '_fonts';
+@import '_variables';
+
 // Reset and Base Styles
 * {
   margin: 0;
@@ -6,10 +10,40 @@
 }
 
 body {
-  font-family: Roboto, Ubuntu, sans-serif;
-  line-height: 1.6;
+  font-family: @font-body;
+  line-height: @line-height-normal;
   color: #333;
   background-color: #fff;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: @weight-bold;
+  line-height: @line-height-tight;
+}
+
+h1 { font-size: @font-size-h1; }
+h2 { font-size: @font-size-h2; }
+h3 { font-size: @font-size-h3; }
+h4 { font-size: @font-size-h4; }
+
+// Code Elements
+code, pre, kbd, samp {
+  font-family: @font-mono;
+  font-size: @font-size-code;
+  background-color: #f5f5f5;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.1875rem;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+
+  code {
+    padding: 0;
+    background-color: transparent;
+  }
 }
 
 .container {
@@ -116,7 +150,8 @@ main {
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
+    font-weight: @weight-medium;
     transition: background-color 0.3s ease;
 
     &:hover {
@@ -155,7 +190,7 @@ footer {
     }
 
     p {
-      font-size: 1.25rem; // Larger typography on tablet+
+      font-size: @font-size-large;
     }
   }
 }
